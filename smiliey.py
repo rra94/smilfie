@@ -54,30 +54,27 @@ while True:
         if mar <= .3 or mar > .38 :
             COUNTER += 1
         else:
-            if COUNTER >= 30:
+            if COUNTER >= 15:
                 TOTAL += 1
                 frame = vs.read()
-                time.sleep(1.0)
+                time.sleep(.3)
                 frame2= frame.copy()
                 img_name = "opencv_frame_{}.png".format(TOTAL)
                 cv2.imwrite(img_name, frame)
                 print("{} written!".format(img_name))
-                cv2.destroyWindow("test")  
             COUNTER = 0
 
         cv2.putText(frame, "MAR: {}".format(mar), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
 
     cv2.imshow("Frame", frame)
     fps.update()
+
     key2 = cv2.waitKey(1) & 0xFF
     if key2 == ord('q'):
         break
 
 fps.stop()
 
-print("elasped time: {:.2f}".format(fps.elapsed()))
-print("approx. FPS: {:.2f}".format(fps.fps()))
 
 cv2.destroyAllWindows()
 vs.stop()
-
