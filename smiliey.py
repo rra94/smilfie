@@ -21,7 +21,7 @@ COUNTER = 0
 TOTAL = 0
 
 
-shape_predictor= "/Users/rra/Downloads/all/shape_predictor_68_face_landmarks.dat"
+shape_predictor= "../shape_predictor_68_face_landmarks.dat" #dace_landmark
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(shape_predictor)
 
